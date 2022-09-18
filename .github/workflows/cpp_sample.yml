@@ -10,6 +10,7 @@ jobs:
        uses: actions/checkout@v2
      - name: Setup CppLint
        uses: actions/setup-python@v2
+     - name: Install cppling
        run: pip3 install cpplint
      - name: Execute CppLint
        run: cpplint --recursive ./src
