@@ -12,7 +12,7 @@ jobs:
        uses: actions/setup-python@v2
      - name: Install cppling
        run: pip3 install cpplint
-     - run: echo pwd
+     - run: pwd
      - name: Execute CppLint
        run: cpplint .
   build:
@@ -22,7 +22,7 @@ jobs:
        uses: actions/checkout@v2
      - name: build
        run: |
-         echo pwd
+         pwd
          cd src/
          cd build/
          cmake ..
