@@ -23,4 +23,4 @@ cpp base program
 
 ## References
 
-- [c++ with docker]<https://qiita.com/kai_kou/items/1f4b9a45a5d4d6788649>
+- [c++ with docker]: https://qiita.com/kai_kou/items/1f4b9a45a5d4d6788649
