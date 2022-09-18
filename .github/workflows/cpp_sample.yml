@@ -10,11 +10,10 @@ jobs:
        uses: actions/checkout@v2
      - name: Setup CppLint
        uses: actions/setup-python@v2
-     - name: Install cppling
-       run: pip3 install cpplint
-     - run: pwd
+     - run: pip3 install cpplint
+     - run: cd src/
      - name: Execute CppLint
-       run: cpplint .
+       run: cpplint ./hoge.cpp
   build:
     runs-on: ubuntu-18.04
     steps:
@@ -24,6 +23,7 @@ jobs:
        run: |
          pwd
          cd src/
+         mkdir build/
          cd build/
          cmake ..
          make
