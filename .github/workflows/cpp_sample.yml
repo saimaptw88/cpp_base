@@ -13,7 +13,7 @@ jobs:
      - run: pip3 install cpplint
      - run: cpplint --version
      - run: ls
-     - run: cd .src/
+     - run: cd src/
      - run: ls
      - run: pwd
      - name: Execute CppLint
@@ -31,5 +31,4 @@ jobs:
          cd build/
          cmake ..
          make
-     - name: Execute
-       run: ./hoge
+         ./hoge
