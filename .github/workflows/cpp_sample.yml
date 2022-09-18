@@ -13,7 +13,7 @@ jobs:
      - name: Install cppling
        run: pip3 install cpplint
      - name: Execute CppLint
-       run: cpplint --recursive ./src
+       run: cpplint .
   build:
     runs-on: ubuntu-18.04
     steps:
@@ -22,7 +22,6 @@ jobs:
      - name: build
        run: |
          cd src/
-         mkdir build/
          cd build/
          cmake ..
          make
