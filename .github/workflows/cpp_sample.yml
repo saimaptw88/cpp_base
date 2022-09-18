@@ -13,6 +13,7 @@ jobs:
      - run: pip3 install cpplint
      - run: cpplint --version
      - run: cd src/
+     - run: pwd
      - name: Execute CppLint
        run: cpplint ./hoge.cpp
   build:
