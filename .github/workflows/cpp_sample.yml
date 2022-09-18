@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+     - name: Git checkout
+       uses: actions/checkout@v2
+     - name: Setup CppLint
+       uses: actions/setup-python@v2
+       run: pip3 install cpplint
+     - name: Execute CppLint
+       run: cpplint --recursive ./src
