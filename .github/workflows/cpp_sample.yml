@@ -12,6 +12,7 @@ jobs:
        uses: actions/setup-python@v2
      - run: pip3 install cpplint
      - run: cpplint --version
+     - run: ls
      - run: cd src/
      - run: pwd
      - name: Execute CppLint
