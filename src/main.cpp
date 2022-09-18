@@ -1,8 +1,11 @@
 // Copyright 2022
-#include <iostream>
+#include "../src/class.h"
+
 
 int main(void) {
-  std::cout << "hello world" << std::endl;
+  HelloWorld hello;
+
+  hello.print();
 
   return 0;
 }
