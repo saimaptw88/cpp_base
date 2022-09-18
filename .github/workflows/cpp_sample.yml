@@ -11,13 +11,12 @@ jobs:
      - name: Setup CppLint
        uses: actions/setup-python@v2
      - run: pip3 install cpplint
-     - run: cpplint --version
-     - run: ls
-     - run: cd src/
-     - run: ls
-     - run: pwd
-     - name: Execute CppLint
-       run: cpplint ./hoge.cpp
+     - name: execute CppLint
+       run: |
+        pwd
+        cd src/
+        ls
+        cpplint ./hoge.cpp
   build:
     runs-on: ubuntu-18.04
     steps:
