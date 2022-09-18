@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/hoge.dir/hoge.cpp.o  -o hoge 

@@ -6,3 +6,5 @@ services:
       - type: bind
         source: .
         target: /cpp-dev
+    tty: true
+    working_dir: /cpp-dev/src/build
