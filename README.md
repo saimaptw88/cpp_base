@@ -11,16 +11,16 @@ cpp base program
 
 ### Initial settings
 
-`docker-compose build`
-`docker-compose run dev bash`
+- `docker-compose build`
+- `docker-compose run dev bash`
 
 ### Build
 
-`docker-compose up -d`
-`docker-compose exec dev cmake ..`
-`docker-compose exec dev cmake --build .`
-`docker-compose exec dev ./main`
+- `docker-compose up -d`
+- `docker-compose exec dev cmake ..`
+- `docker-compose exec dev cmake --build .`
+- `docker-compose exec dev ./my_app`
 
 ## References
 
-- https://qiita.com/kai_kou/items/1f4b9a45a5d4d6788649
+- [c++ with docker]<https://qiita.com/kai_kou/items/1f4b9a45a5d4d6788649>
