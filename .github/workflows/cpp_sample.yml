@@ -3,25 +3,20 @@ name: CI
 on: [push]
 
 jobs:
-  cpplint:
-    runs-on: ubuntu-18.04
-    steps:
-     - name: Git checkout
-       uses: actions/checkout@v2
-     - name: Setup CppLint
-       uses: actions/setup-python@v2
-     - run: pip3 install cpplint
-     - run: cd src/
-     - name: Execute CppLint
-       run: cpplint ./hoge.cpp
   build:
     runs-on: ubuntu-18.04
     steps:
      - name: Git checkout
        uses: actions/checkout@v2
+     - name: Setup python
+       uses: actions/setup-python@v2
+     - name: cpplint
+       run: |
+         pip3 install cpplint
+         cd src/
+         cpplint --recursive .
      - name: build
        run: |
-         pwd
          cd src/
          mkdir build/
          cd build/

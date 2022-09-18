@@ -19,7 +19,7 @@ cpp base program
 `docker-compose up -d`
 `docker-compose exec dev cmake ..`
 `docker-compose exec dev cmake --build .`
-`docker-compose exec dev ./hoge`
+`docker-compose exec dev ./main`
 
 ## References
 
