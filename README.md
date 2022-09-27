@@ -1,6 +1,6 @@
 ## Overview
 
-cpp base program
+cpp sample program based on docker & cmake
 
 ## Tools
 
