@@ -13,8 +13,6 @@ jobs:
      - name: Setup lint
        run: |
          pip3 install cpplint
-     - name: Setup Google Test
-       run: sudo apt-get install libgtest-dev
      - name: build
        run: |
          mkdir build
@@ -26,5 +24,3 @@ jobs:
          cd src/
          cpplint --recursive .
          cd ../
-     - name: Google Tests
-       run: ctest --verbose
