@@ -22,6 +22,5 @@ jobs:
          cd ../
      - name: Setup Test
        run: |
-         cd /usr
-         pwd
-         ls
+         GOOGLE_TEST_VERSION=1.12.0
+         curl -OL https://github.com/google/googletest/archive/release-${GOOGLE_TEST_VERSION}.tar.gz
