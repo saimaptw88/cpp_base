@@ -28,5 +28,9 @@ jobs:
          && cd googletest-release-${GOOGLE_TEST_VERSION} \
          && mkdir build \
          && cd build \
+         && cmake .. \
+         && make \
+         && make install \
          && pwd \
-         && ls
+         && ls \
+         && ls /usr/local
