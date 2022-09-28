@@ -20,6 +20,12 @@ jobs:
          cd ../test
          cpplint --recursive .
          cd ../
+     - name: Build
+       run: |
+         mkdir build \
+         && cd build \
+         && cmake .. \
+         && make
      - name: Setup Test
        run: |
          GOOGLE_TEST_VERSION=1.12.0
@@ -32,8 +38,6 @@ jobs:
          && sudo make
      - name: Google Test
        run: |
-         pwd \
-         &&ls \
-         && mkdir build \
+         mkdir build \
          && cd build \
          && ctest --verbose
