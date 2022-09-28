@@ -13,10 +13,31 @@ jobs:
      - name: Setup lint
        run: |
          pip3 install cpplint
-     - name: Cpp Lint on src
+     - name: Setup Test
        run: |
-         cd src/
-         cpplint --recursive .
-         cd ../test
-         cpplint --recursive .
-         cd ../
+         GOOGLE_TEST_VERSION=1.12.0
+         curl -OL https://github.com/google/googletest/archive/release-${GOOGLE_TEST_VERSION}.tar.gz \
+         && tar -zxvf release-${GOOGLE_TEST_VERSION}.tar.gz \
+         && cd googletest-release-${GOOGLE_TEST_VERSION} \
+         && mkdir build \
+         && cd build \
+         && cmake .. \
+         && make \
+         && sudo make install
+     - name: Build
+       run: |
+         mkdir build \
+         && cd build \
+         && cmake .. \
+         && make
+     - name: Cpp Lint
+       run: |
+         cd src \
+         && cpplint --recursive . \
+         && cd ../test \
+         && cpplint --recursive . \
+         && cd ../
+     - name: Google Test
+       run: |
+         cd build \
+         && ctest --verbose
