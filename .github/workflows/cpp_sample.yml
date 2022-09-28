@@ -13,10 +13,17 @@ jobs:
      - name: Setup lint
        run: |
          pip3 install cpplint
-     - name: check directory
-       run: pwd
-     - name: ls
-       run: ls
+     - name: Setup Google Test
+       run: |
+         wget --q https://github.com/google/googletest/archive/release-1.12.0.tar.gz
+         tar -zxvf release-1.12.0.tar.gz
+         mkdir ./googletest-release-1.12.0/build
+         cd /googletest-release-1.12.0/build
+         cmake ..
+         make
+         #make install
+         popd
+         rm -rf buld/
      - name: build
        run: |
          mkdir build
