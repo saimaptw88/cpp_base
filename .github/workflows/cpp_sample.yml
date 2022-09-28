@@ -22,6 +22,8 @@ jobs:
          cd build
          cmake ..
          make
+         ls
+         ls ../
          popd
          cd ../..
          rm -rf build/
