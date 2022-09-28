@@ -15,7 +15,6 @@ jobs:
          pip3 install cpplint
      - name: build
        run: |
-         mkdir /build
          cd build/
          cmake ..
          make
