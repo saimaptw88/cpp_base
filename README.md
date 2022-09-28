@@ -14,7 +14,7 @@ cpp sample program based on docker & cmake
 - `docker-compose build`
 - `docker-compose run dev bash`  # if you want to check inside of the container
 
-### Build
+### Build(cpp17 on ubuntu18)
 
 - `docker-compose up -d`
 - `docker-compose exec dev cmake ..`
@@ -22,9 +22,9 @@ cpp sample program based on docker & cmake
 - `docker-compose exec dev ./src/my_app`  # execute app
 
 ## Lint(CppLint)
-- `docker-compose exec dev cpplint ../hello.cpp ../hello.h ../main.cpp`
+- `docker-compose exec dev cpplint ../src/main.cpp`
 
-## Tests
+## Tests(Google Tests)
 - `docker-compose exec dev ctest --verbose`
 
 ## References
