@@ -24,13 +24,13 @@ jobs:
          && cmake .. \
          && make \
          && sudo make install
-     - name: Cpp Lint on src
+     - name: Cpp Lint
        run: |
-         cd src/
-         cpplint --recursive .
-         cd ../test
-         cpplint --recursive .
-         cd ../
+         cd src \
+         && cpplint --recursive . \
+         && cd ../test \
+         && cpplint --recursive . \
+         && cd ../
      - name: Build
        run: |
          mkdir build \
