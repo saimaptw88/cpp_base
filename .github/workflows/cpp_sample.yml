@@ -31,5 +31,5 @@ jobs:
          && cmake .. \
          && make \
          && pwd \
-         && ls \
-         && ls /usr/local/lib
+         && cd /usr/local/lib \
+         && ls
