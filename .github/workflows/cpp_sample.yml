@@ -39,6 +39,5 @@ jobs:
          && make
      - name: Google Test
        run: |
-         mkdir build \
-         && cd build \
+         cd build \
          && ctest --verbose
