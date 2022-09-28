@@ -13,12 +13,6 @@ jobs:
      - name: Setup lint
        run: |
          pip3 install cpplint
-     - name: build
-       run: |
-         mkdir build
-         cd build/
-         cmake ..
-         make
      - name: Cpp Lint
        run: |
          cd src/
