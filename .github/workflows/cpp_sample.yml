@@ -13,6 +13,16 @@ jobs:
      - name: Setup lint
        run: |
          pip3 install cpplint
+     - name: Setup Test
+       run: |
+         GOOGLE_TEST_VERSION=1.12.0
+         curl -OL https://github.com/google/googletest/archive/release-${GOOGLE_TEST_VERSION}.tar.gz \
+         && tar -zxvf release-${GOOGLE_TEST_VERSION}.tar.gz \
+         && cd googletest-release-${GOOGLE_TEST_VERSION} \
+         && mkdir build \
+         && cd build \
+         && cmake .. \
+         && sudo make
      - name: Cpp Lint on src
        run: |
          cd src/
@@ -26,16 +36,6 @@ jobs:
          && cd build \
          && cmake .. \
          && make
-     - name: Setup Test
-       run: |
-         GOOGLE_TEST_VERSION=1.12.0
-         curl -OL https://github.com/google/googletest/archive/release-${GOOGLE_TEST_VERSION}.tar.gz \
-         && tar -zxvf release-${GOOGLE_TEST_VERSION}.tar.gz \
-         && cd googletest-release-${GOOGLE_TEST_VERSION} \
-         && mkdir build \
-         && cd build \
-         && cmake .. \
-         && sudo make
      - name: Google Test
        run: |
          mkdir build \
