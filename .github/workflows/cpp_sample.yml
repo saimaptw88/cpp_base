@@ -13,8 +13,10 @@ jobs:
      - name: Setup lint
        run: |
          pip3 install cpplint
-     - name: Cpp Lint
+     - name: Cpp Lint on src
        run: |
          cd src/
+         cpplint --recursive .
+         cd ../test
          cpplint --recursive .
          cd ../

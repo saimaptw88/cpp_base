@@ -1,3 +1,4 @@
+// Copyright 2022 saito
 #include <gtest/gtest.h>
 #include "../src/my_math.h"
 
@@ -12,4 +13,4 @@ namespace {
   TEST_F(MyLibTest, SumFuncCheck) {
     EXPECT_EQ(sum(1.0, 2.0), 3.0);
   }
-}
+}  // namespace
