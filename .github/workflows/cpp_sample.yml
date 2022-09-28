@@ -22,7 +22,8 @@ jobs:
          && mkdir build \
          && cd build \
          && cmake .. \
-         && sudo make
+         && make \
+         && sudo make install
      - name: Cpp Lint on src
        run: |
          cd src/
