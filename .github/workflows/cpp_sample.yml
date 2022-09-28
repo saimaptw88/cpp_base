@@ -13,6 +13,8 @@ jobs:
      - name: Setup lint
        run: |
          pip3 install cpplint
+     - name: check directory
+       run: pwd
      - name: build
        run: |
          cd build/
