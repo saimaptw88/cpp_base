@@ -7,5 +7,5 @@ double sqr(double v) {
 }
 
 double sum(double v1, double v2) {
-  return v1 -v2;
+  return v1+v2;
 }
