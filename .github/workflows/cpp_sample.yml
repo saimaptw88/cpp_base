@@ -22,8 +22,7 @@ jobs:
          cd build
          cmake ..
          make
-         #make install
-         popd
+         make install
          cd ../..
          rm -rf build/
      - name: build
