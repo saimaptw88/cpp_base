@@ -2,7 +2,7 @@
 
 cpp sample program based on docker & cmake
 
-## Tools
+## Require Tools
 
 - docker -v: 20.10.13
 - docker-compose -v: 1.29.2
@@ -21,10 +21,13 @@ cpp sample program based on docker & cmake
 - `docker-compose exec dev make`
 - `docker-compose exec dev ./src/my_app`  # execute app
 
-## Lint(CppLint)
+### Finish developing today
+- `docker-compose down`
+
+### Lint(CppLint)
 - `docker-compose exec dev cpplint ../src/main.cpp`
 
-## Tests(Google Tests)
+### Tests(Google Tests)
 - `docker-compose exec dev ctest --verbose`
 
 ## References
