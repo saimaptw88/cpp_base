@@ -1,11 +1,9 @@
 // Copyright 2022
-#include "../src/class.h"
+#include "../src/my_math.h"
 
 
 int main(void) {
-  HelloWorld hello;
-
-  hello.print();
+  std::cout << "hello world" << std::endl;
 
   return 0;
 }

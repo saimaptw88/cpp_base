@@ -30,6 +30,10 @@ cpp sample program based on docker & cmake
 ### Tests(Google Tests)
 - `docker-compose exec dev ctest --verbose`
 
+## Cpp Lint
+Using cpplint tool.
+- ``` docker-compose exec dev cpplint ../main.cpp ```
+
 ## References
 
 - [c++ with docker](https://qiita.com/kai_kou/items/1f4b9a45a5d4d6788649)
