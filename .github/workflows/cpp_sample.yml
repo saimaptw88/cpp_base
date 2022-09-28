@@ -33,4 +33,7 @@ jobs:
      - name: Google Test
        run: |
          pwd \
+         &&ls \
+         && mkdir build \
+         && cd build \
          && ctest --verbose
