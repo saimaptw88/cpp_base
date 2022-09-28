@@ -37,7 +37,7 @@
   "explorer.incrementalNaming": "smart",
   // 言語に対するファイルの関連付け
   "files.associations": {
-    // あれば記述する
+    "iosfwd": "cpp"
   },
   // 改行コードの規定値
   "files.eol": "\n",

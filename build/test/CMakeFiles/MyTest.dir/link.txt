@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/MyTest.dir/test.cpp.o  -o MyTest  -L/usr/local/lib -Wl,-rpath,/usr/local/lib ../src/libmy_math.a -lgtest -lgtest_main -lpthread 
