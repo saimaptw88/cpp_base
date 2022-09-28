@@ -32,6 +32,5 @@ jobs:
          && sudo make
      - name: Google Test
        run: |
-         cd build \
-         && pwd \
+         cd pwd \
          && ctest --verbose
