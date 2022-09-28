@@ -27,6 +27,6 @@ jobs:
          && tar -zxvf release-${GOOGLE_TEST_VERSION}.tar.gz \
          && cd googletest-release-${GOOGLE_TEST_VERSION} \
          && mkdir build \
-         && cd build
+         && cd build \
          && pwd \
          && ls
