@@ -20,3 +20,8 @@ jobs:
          cd ../test
          cpplint --recursive .
          cd ../
+     - name: Setup Test
+       run: |
+         cd /usr
+         pwd
+         ls
