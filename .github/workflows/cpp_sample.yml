@@ -17,13 +17,14 @@ jobs:
        run: |
          wget --quiet https://github.com/google/googletest/archive/release-1.12.0.tar.gz
          tar -zxvf release-1.12.0.tar.gz
-         mkdir ./googletest-release-1.12.0/build
+         ls
+         mkdir googletest-release-1.12.0/build
          cd /googletest-release-1.12.0/build
          cmake ..
          make
          #make install
          popd
-         rm -rf buld/
+         rm -rf build/
      - name: build
        run: |
          mkdir build
