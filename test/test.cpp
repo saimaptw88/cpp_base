@@ -1,6 +1,6 @@
 // Copyright 2022 saito
 #include <gtest/gtest.h>
-#include "../src/my_math.h"
+#include "../src/my_math_dll/my_math.h"
 
 namespace {
   class MyLibTest : public ::testing::Test{};

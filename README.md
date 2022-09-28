@@ -25,14 +25,12 @@ cpp sample program based on docker & cmake
 - `docker-compose down`
 
 ### Lint(CppLint)
-- `docker-compose exec dev cpplint ../src/main.cpp`
+- `docker-compose exec dev cpplint ../src/exe/main.cpp`
+- `docker-compose exec dev cpplint ../src/my_math_dll/my_math.cpp`
+- `docker-compose exec dev cpplint ../src/my_math_dll/my_math.h`
 
 ### Tests(Google Tests)
 - `docker-compose exec dev ctest --verbose`
-
-## Cpp Lint
-Using cpplint tool.
-- ``` docker-compose exec dev cpplint ../main.cpp ```
 
 ## References
 
