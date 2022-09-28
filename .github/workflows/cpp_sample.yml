@@ -24,6 +24,12 @@ jobs:
          && cmake .. \
          && make \
          && sudo make install
+     - name: Build
+       run: |
+         mkdir build \
+         && cd build \
+         && cmake .. \
+         && make
      - name: Cpp Lint
        run: |
          cd src \
@@ -31,12 +37,6 @@ jobs:
          && cd ../test \
          && cpplint --recursive . \
          && cd ../
-     - name: Build
-       run: |
-         mkdir build \
-         && cd build \
-         && cmake .. \
-         && make
      - name: Google Test
        run: |
          cd build \
