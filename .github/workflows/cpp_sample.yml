@@ -29,7 +29,9 @@ jobs:
          && mkdir build \
          && cd build \
          && cmake .. \
-         && sudo make \
+         && sudo make
+     - name: Google Test
+       run: |
+         cd build \
          && pwd \
-         && cd /usr/local/lib \
-         && ls
+         && ctest --verbose
