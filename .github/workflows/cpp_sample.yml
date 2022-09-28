@@ -15,26 +15,27 @@ jobs:
          pip3 install cpplint
      - name: Setup Google Test
        run: |
-         wget --quiet https://github.com/google/googletest/archive/release-1.12.0.tar.gz
-         tar -zxvf release-1.12.0.tar.gz
-         cd googletest-release-1.12.0
-         #pushd .
+         sudo apt-get install libgtest-dev
+         cd /usr/src/gtest
+         sudo cmake CMakeLists.txt
+         sudo make
+         sudo cp *.a /usr/lib
+         sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a
+         sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
          mkdir build
          cd build
-         cmake ..
-         make
-         #popd
-         rm -rf build/
+         cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" ..
+         cd build make
+     - name: Google Tests
+       run: ctest --verbose
+     - name: Cpp Lint
+       run: |
+         cd src/
+         cpplint --recursive .
+         cd ../
      - name: build
        run: |
          mkdir build
          cd build/
          cmake ..
          make
-     - name: Cpp Lint
-       run: |
-         cd src/
-         cpplint --recursive .
-         cd ../
-     - name: Google Tests
-       run: ctest --verbose
