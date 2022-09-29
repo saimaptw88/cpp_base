@@ -6,4 +6,5 @@ add_subdirectory(src)
 add_subdirectory(test)
 enable_testing()
 
-add_test(NAME MyTest COMMAND MyMathDllTest)
+add_test(NAME HelloTest COMMAND HelloDllTest)
+# add_test(NAME MyMathDllTest COMMAND MyMathDllTest)
