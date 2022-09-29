@@ -1,2 +1,2 @@
 add_executable(my_app main.cpp)
-target_link_libraries(my_app my_math)
+target_link_libraries(my_app my_math hello)
