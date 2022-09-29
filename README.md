@@ -14,7 +14,7 @@ cpp sample program based on docker & cmake
 - `docker-compose build`
 - `docker-compose run dev bash`  # if you want to check inside of the container
 
-### Build(cpp17 on ubuntu18)
+### Build(ubuntu18)
 
 - `docker-compose up -d`
 - `docker-compose exec dev cmake ..`
