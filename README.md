@@ -21,16 +21,21 @@ cpp sample program based on docker & cmake
 - `docker-compose exec dev make`
 - `docker-compose exec dev ./src/my_app`  # execute app
 
-### Finish developing today
-- `docker-compose down`
-
 ### Lint(CppLint)
 - `docker-compose exec dev cpplint ../src/exe/main.cpp`
 - `docker-compose exec dev cpplint ../src/my_math_dll/my_math.cpp`
 - `docker-compose exec dev cpplint ../src/my_math_dll/my_math.h`
+- `docker-compose exec dev cpplint ../test/my_math_dll_test/my_math_test.cpp`
+- `docker-compose exec dev cpplint ../src/hello_dll/hello.cpp`
+- `docker-compose exec dev cpplint ../src/hello_dll/hello.h`
+- `docker-compose exec dev cpplint ../test/hello_dll_test/hello_test.cpp`
 
 ### Tests(Google Tests)
 - `docker-compose exec dev ctest --verbose`
+
+### Others
+- `docker-compose down`  # if finish developing
+- `docker-compose ps`  # check docker image status
 
 ## References
 
