@@ -1,6 +1,6 @@
 ## Overview
 
-cpp sample program based on docker & cmake
+cpp developint base program with docker & cmake
 
 ## Require Tools
 
