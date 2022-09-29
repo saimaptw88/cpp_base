@@ -6,7 +6,7 @@
 #include <string>
 
 class Hello {
-public:
+ public:
   void hello();
 };
 

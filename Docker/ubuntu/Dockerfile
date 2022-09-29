@@ -8,29 +8,26 @@ RUN apt-get update \
       build-essential \
       clang \
       curl \
-      git \
       libssl-dev \
       python3-pip \
-      vim \
-      wget \
   && pip3 install cpplint \
   && apt-get clean \
   && rm -r /var/lib/apt/lists/* \
   && mkdir /tmp/src
 
 WORKDIR /tmp/src
-RUN wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}.tar.gz \
+RUN curl -OL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}.tar.gz \
     && tar zxvf cmake-${CMAKE_VERSION}.tar.gz \
     && cd cmake-${CMAKE_VERSION}/ \
     && ./bootstrap \
     && make \
     && make install
 
-RUN curl -OL https://github.com/google/googletest/archive/release-${GOOGLE_TEST_VERSION}.tar.gz
-RUN tar -zxvf release-${GOOGLE_TEST_VERSION}.tar.gz \
-    && mkdir ./googletest-release-${GOOGLE_TEST_VERSION}/build
-WORKDIR /tmp/src/googletest-release-${GOOGLE_TEST_VERSION}/build
-RUN cmake .. \
+RUN curl -OL https://github.com/google/googletest/archive/release-${GOOGLE_TEST_VERSION}.tar.gz \
+    && tar -zxvf release-${GOOGLE_TEST_VERSION}.tar.gz \
+    && mkdir ./googletest-release-${GOOGLE_TEST_VERSION}/build \
+    && cd /tmp/src/googletest-release-${GOOGLE_TEST_VERSION}/build \
+    && cmake .. \
     && make \
     && make install
 
