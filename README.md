@@ -1,22 +1,18 @@
 ## Overview
-
-cpp developint base program with docker & cmake
+C++ base developing environment with docker & cmake, cpplint & google test
 
 ## Require Tools
-
-- docker -v: 20.10.13
-- docker-compose -v: 1.29.2
+- docker -v: ex. 20.10.13
+- docker-compose -v: ex. 1.29.2
 
 ## Usage
 
 ### Create docker image
-
 - `docker-compose build` or `docker-compose build --no-cache`
-- `docker-compose run dev bash`  # if you want to check inside of the container
 
 ### Start docker container
-
 - `docker-compose up -d`
+- `docker-compose run dev bash`  # if you want to check inside of the container
 
 ### dlls
 - `docker-compose exec dev ../bash/add_dll.sh <dll name>` # Create new dll
@@ -35,8 +31,9 @@ For example,
 - `docker-compose exec dev cpplint ../src/hello_dll/hello.cpp`
 
 ### Tests(Google Tests)
-- `docker-compose exec dev ctest --verbose`
+For example,
 - `docker-compose exec dev src/hello_test`
+- `docker-compose exec dev src/my_math_test`
 
 ### Stop docker container
 - `docker-compose down`  # if finish developing
