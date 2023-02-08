@@ -3,8 +3,6 @@ project(MYTEST)
 set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(src)
-add_subdirectory(test)
-enable_testing()
 
-add_test(NAME MyTest COMMAND bash -c "./test/HelloDllTest; \
-                                      ./test/MyMathDllTest")
+enable_testing()
+add_test(NAME MyTest COMMAND bash -c "./src/hello_dll_test")

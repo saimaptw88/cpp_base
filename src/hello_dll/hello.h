@@ -7,7 +7,7 @@
 
 class Hello {
  public:
-  void hello();
+  int hello();
 };
 
 #endif  // SRC_HELLO_DLL_HELLO_H_
