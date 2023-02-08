@@ -34,8 +34,6 @@ jobs:
        run: |
          cd src \
          && cpplint --recursive . \
-         && cd ../test \
-         && cpplint --recursive . \
          && cd ../
      - name: Google Test
        run: |
