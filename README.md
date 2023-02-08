@@ -1,40 +1,44 @@
 ## Overview
-
-cpp developint base program with docker & cmake
+C++ base developing environment with docker & cmake, cpplint & google test
 
 ## Require Tools
-
-- docker -v: 20.10.13
-- docker-compose -v: 1.29.2
+- docker -v: ex. 20.10.13
+- docker-compose -v: ex. 1.29.2
 
 ## Usage
 
-### Initial settings
+### Create docker image
+- `docker-compose build` or `docker-compose build --no-cache`
 
-- `docker-compose build`
+### Start docker container
+- `docker-compose up -d`
 - `docker-compose run dev bash`  # if you want to check inside of the container
+
+### dlls
+- `docker-compose exec dev ../bash/add_dll.sh <dll name>` # Create new dll
+- `docker-compose exec dev ../bash/delete_dll.sh <dll name>` # Delete dll
 
 ### Build(ubuntu18)
 
-- `docker-compose up -d`
 - `docker-compose exec dev cmake ..`
 - `docker-compose exec dev make`
 - `docker-compose exec dev ./src/my_app`  # execute app
 
 ### Lint(CppLint)
+For example,
 - `docker-compose exec dev cpplint ../src/exe/main.cpp`
 - `docker-compose exec dev cpplint ../src/my_math_dll/my_math.cpp`
-- `docker-compose exec dev cpplint ../src/my_math_dll/my_math.h`
-- `docker-compose exec dev cpplint ../test/my_math_dll_test/my_math_test.cpp`
 - `docker-compose exec dev cpplint ../src/hello_dll/hello.cpp`
-- `docker-compose exec dev cpplint ../src/hello_dll/hello.h`
-- `docker-compose exec dev cpplint ../test/hello_dll_test/hello_test.cpp`
 
 ### Tests(Google Tests)
-- `docker-compose exec dev ctest --verbose`
+For example,
+- `docker-compose exec dev src/hello_test`
+- `docker-compose exec dev src/my_math_test`
+
+### Stop docker container
+- `docker-compose down`  # if finish developing
 
 ### Others
-- `docker-compose down`  # if finish developing
 - `docker-compose ps`  # check docker image status
 
 ## References
