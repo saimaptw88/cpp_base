@@ -10,21 +10,22 @@ fi
 NAME=$1
 UPPER_NAME=`echo $1 | tr '[a-z]' '[A-Z]'`
 TEST_NAME=$1"_"test
-DIR="/cpp-dev/src/$NAME"
+HOME_DIR=/cpp-dev
+NEW_DIR="$HOME_DIR/src/$NAME"
 
 # Create directory
-if [ -e $DIR ]; then
+if [ -e $NEW_DIR ]; then
   echo "Directory is aleady exist."
   exit 1
 else
-  mkdir -p $DIR
+  mkdir -p $NEW_DIR
 fi
 
 # Create files
-CMAKE_FILE="$DIR/CMakeLists.txt"
-CPP_FILE="$DIR/$NAME.cpp"
-H_FILE="$DIR/$NAME.h"
-TEST_FILE=$DIR/$TEST_NAME.cpp
+CMAKE_FILE="$NEW_DIR/CMakeLists.txt"
+CPP_FILE="$NEW_DIR/$NAME.cpp"
+H_FILE="$NEW_DIR/$NAME.h"
+TEST_FILE=$NEW_DIR/$TEST_NAME.cpp
 
 touch $CMAKE_FILE
 touch $CPP_FILE
@@ -83,6 +84,12 @@ text="// Copyright $(date +%Y) saito
 TEST($NAME, sum_test) {
   EXPECT_EQ(3, sum(1, 2));
 }
-
 "
 echo "$text" > $TEST_FILE
+
+# add to $HOME_DIR/src/CMakeLists.txt
+FILE="$HOME_DIR/src/CMakeLists.txt"
+echo "add_subdirectory($NAME)" >> $FILE
+
+# add to $HOME_DIR/src/exe/CMakeLists.txt
+sed -i -e "3a $NAME" $HOME_DIR/src/exe/CMakeLists.txt
