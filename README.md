@@ -32,6 +32,7 @@ For example,
 
 ### Tests(Google Tests)
 For example,
+- `docker-compose exec dev ctest --verbose` # all tests
 - `docker-compose exec dev src/hello_test`
 - `docker-compose exec dev src/my_math_test`
 
