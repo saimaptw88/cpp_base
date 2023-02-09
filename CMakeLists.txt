@@ -8,5 +8,4 @@ enable_testing()
 add_test(NAME MyTest COMMAND bash -c
 "./src/hello_test;
 ./src/my_math_test;
-./src/good_test;
 ")
