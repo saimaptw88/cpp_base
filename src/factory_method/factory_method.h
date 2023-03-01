@@ -8,67 +8,66 @@
 
 int sum(int, int);
 
-class Product {
+class Transport {
  public:
-  virtual ~Product() {};
-  virtual std::string Operation() const = 0;
+  virtual ~Transport() {};
+  virtual std::string deliver() const = 0;
 };
 
-class ConcreteProduct1 : public Product {
+class Truck : public Transport {
  public:
-  std::string Operation() const override {
-    return "{Result of the ConcreteProduct1}";
+  std::string deliver() const override {
+    return "transport by truck";
   }
 };
 
-class ConcreteProduct2 : public Product {
+class Ship : public Transport {
  public:
-  std::string Operation() const override {
-    return "{Result of the ConcreteProduct2}";
+  std::string deliver() const override {
+    return "transport by ship";
   }
 };
 
-class Creator {
+class Logistics {
  public:
-  virtual ~Creator() {};
-  virtual Product* FactoryMethod() const = 0;
+  virtual ~Logistics() {};
+  virtual Transport* createTransport() const = 0;
 
-  std::string SomeOperation() const {
-    Product* product = this->FactoryMethod();
+  std::string deliveration() const {
+    Transport* transport = this->createTransport();
 
-    std::string result = "Creator: The same creator's code has just worked with " + product->Operation();
+    std::string result = transport->deliver();
 
-    delete product;
+    delete transport;
     return result;
   }
 };
 
-class ConcreteCreator1 : public Creator {
+class RoadLogistics : public Logistics {
  public:
-  Product* FactoryMethod() const override {
-    return new ConcreteProduct1();
+  Transport* createTransport() const override {
+    return new Truck();
   }
 };
 
-class ConcreteCreator2 : public Creator {
+class SeaLogistics : public Logistics {
  public:
-  Product* FactoryMethod() const override {
-    return new ConcreteProduct2();
+  Transport* createTransport() const override {
+    return new Ship();
   }
 };
 
-void ClientCode(const Creator& creator) {
-  std::cout << "Client: I'm not aware of the creator's class, but it still works.\n"
-            << creator.SomeOperation() << std::endl;
+void ClientCode(const Logistics& logistics) {
+  std::cout << logistics.deliveration() << std::endl;
 }
 
 void execute_factory_method() {
-  ConcreteCreator1* creator1 = new ConcreteCreator1();
-  ClientCode(*creator1);
-  delete creator1;
+  RoadLogistics* road_logistics = new RoadLogistics();
+  ClientCode(*road_logistics);
+  delete road_logistics;
 
-  ConcreteCreator2* creator2 = new ConcreteCreator2();
-  ClientCode(*creator2);
-  delete creator2;
+  SeaLogistics* sea_logistics = new SeaLogistics();
+  ClientCode(*sea_logistics);
+  delete sea_logistics;
 }
 #endif  // SRC_FACTORY_METHOD_FACTORY_METHOD_H_
