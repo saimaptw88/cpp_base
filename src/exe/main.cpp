@@ -1,13 +1,17 @@
 // Copyright 2022
 #include "../my_math_dll/my_math.h"
 #include "../hello_dll/hello.h"
+#include "../abstract_factory/abstract_factory.h"
 
 
 int main(void) {
-  std::cout << "my_math function sqr(3) = " << sqr(3) << std::endl;
+  ModenFurnitureFactory* moden_furniture = new ModenFurnitureFactory();
+  application(*moden_furniture);
+  delete moden_furniture;
 
-  Hello h;
-  h.hello();
+  VictorianFurnitureFactory* victorian_furniture = new VictorianFurnitureFactory();
+  application(*victorian_furniture);
+  delete victorian_furniture;
 
   return 0;
 }

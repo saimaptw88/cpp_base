@@ -6,3 +6,5 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 add_subdirectory(exe)
 add_subdirectory(my_math_dll)
 add_subdirectory(hello_dll)
+
+add_subdirectory(abstract_factory)
