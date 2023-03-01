@@ -8,3 +8,4 @@ add_subdirectory(my_math_dll)
 add_subdirectory(hello_dll)
 
 add_subdirectory(abstract_factory)
+add_subdirectory(factory_method)
