@@ -103,4 +103,14 @@ inline void application(const FurnitureFactory& furniture) {
   delete coffee_table;
 }
 
+inline void execute_abstract_factory() {
+  ModenFurnitureFactory* moden_furniture = new ModenFurnitureFactory();
+  application(*moden_furniture);
+  delete moden_furniture;
+
+  VictorianFurnitureFactory* victorian_furniture = new VictorianFurnitureFactory();
+  application(*victorian_furniture);
+  delete victorian_furniture;
+}
+
 #endif  // SRC_ABSTRACT_FACTORY_ABSTRACT_FACTORY_H_

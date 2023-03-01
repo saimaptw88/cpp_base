@@ -5,13 +5,7 @@
 
 
 int main(void) {
-  ModenFurnitureFactory* moden_furniture = new ModenFurnitureFactory();
-  application(*moden_furniture);
-  delete moden_furniture;
-
-  VictorianFurnitureFactory* victorian_furniture = new VictorianFurnitureFactory();
-  application(*victorian_furniture);
-  delete victorian_furniture;
+  execute_abstract_factory();
 
   return 0;
 }
