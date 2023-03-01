@@ -62,11 +62,11 @@ void ClientCode(const Logistics& logistics) {
 }
 
 void execute_factory_method() {
-  RoadLogistics* road_logistics = new RoadLogistics();
+  Logistics* road_logistics = new RoadLogistics();
   ClientCode(*road_logistics);
   delete road_logistics;
 
-  SeaLogistics* sea_logistics = new SeaLogistics();
+  Logistics* sea_logistics = new SeaLogistics();
   ClientCode(*sea_logistics);
   delete sea_logistics;
 }
