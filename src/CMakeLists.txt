@@ -9,3 +9,4 @@ add_subdirectory(hello_dll)
 
 add_subdirectory(abstract_factory)
 add_subdirectory(factory_method)
+add_subdirectory(prototype)

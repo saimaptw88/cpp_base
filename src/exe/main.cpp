@@ -3,11 +3,13 @@
 #include "../hello_dll/hello.h"
 #include "../abstract_factory/abstract_factory.h"
 #include "../factory_method/factory_method.h"
+#include "../prototype/prototype.h"
 
 
 int main(void) {
   execute_abstract_factory();
   execute_factory_method();
+  execute_prototype();
 
   return 0;
 }
