@@ -5,6 +5,7 @@
 #include "../builder/builder.h"
 #include "../factory_method/factory_method.h"
 #include "../prototype/prototype.h"
+#include "../singleton/singleton.h"
 
 
 int main(void) {
@@ -12,6 +13,7 @@ int main(void) {
   execute_factory_method();
   execute_prototype();
   execute_builder();
+  execute_singleton();
 
   return 0;
 }
