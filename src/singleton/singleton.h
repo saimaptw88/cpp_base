@@ -2,11 +2,11 @@
 #ifndef SRC_SINGLETON_SINGLETON_H_
 #define SRC_SINGLETON_SINGLETON_H_
 
-#include <chrono>
+#include <chrono>  // NOLINT
 #include <iostream>
-#include <mutex>
+#include <mutex>  // NOLINT
 #include <string>
-#include <thread>
+#include <thread>  // NOLINT
 
 
 int sum(int, int);
@@ -17,13 +17,13 @@ class Singleton {
   static std::mutex mutex_;
 
  protected:
-  Singleton(const std::string value): value_(value) {}
+  explicit Singleton(const std::string value): value_(value) {}
   ~Singleton() {}
 
   std::string value_;
 
  public:
-  Singleton(Singleton &other) = delete;
+  Singleton(Singleton &other) = delete;  // NOLINT
   void operator=(const Singleton &) = delete;
 
   static Singleton *GetInstance(const std::string &value);
