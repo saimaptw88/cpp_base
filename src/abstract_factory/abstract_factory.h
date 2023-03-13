@@ -9,7 +9,7 @@ int sum(int, int);
 
 class Chair {
  public:
-  virtual ~Chair() {};
+  virtual ~Chair() {}
   virtual bool hasLegs() const = 0;
   virtual void sitOn() const = 0;
 };
@@ -36,7 +36,7 @@ class ModenChair : public Chair {
 
 class CoffeeTable {
  public:
-  virtual ~CoffeeTable() {};
+  virtual ~CoffeeTable() {}
   virtual bool hasLegs() const = 0;
   virtual void putOn() const = 0;
 };
@@ -108,7 +108,8 @@ inline void execute_abstract_factory() {
   application(*moden_furniture);
   delete moden_furniture;
 
-  VictorianFurnitureFactory* victorian_furniture = new VictorianFurnitureFactory();
+  VictorianFurnitureFactory* victorian_furniture =
+  new VictorianFurnitureFactory();
   application(*victorian_furniture);
   delete victorian_furniture;
 }

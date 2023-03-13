@@ -85,7 +85,7 @@ class PrototypeFactory {
   }
 };
 
-void Client(PrototypeFactory &prototype_factory);
+void Client(PrototypeFactory &prototype_factory);  // NOLINT
 void execute_prototype();
 
 #endif  // SRC_PROTOTYPE_PROTOTYPE_H_

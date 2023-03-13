@@ -10,7 +10,7 @@ int sum(int, int);
 
 class Transport {
  public:
-  virtual ~Transport() {};
+  virtual ~Transport() {}
   virtual std::string deliver() const = 0;
 };
 
@@ -30,7 +30,7 @@ class Ship : public Transport {
 
 class Logistics {
  public:
-  virtual ~Logistics() {};
+  virtual ~Logistics() {}
   virtual Transport* createTransport() const = 0;
 
   std::string deliveration() const {
