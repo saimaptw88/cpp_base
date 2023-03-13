@@ -8,4 +8,9 @@ enable_testing()
 add_test(NAME MyTest COMMAND bash -c
 "./src/hello_test;
 ./src/my_math_test;
+./src/singleton_test;
+./src/builder_test;
+./src/prototype_test;
+./src/factory_method_test;
+./src/abstract_factory_test;
 ")
