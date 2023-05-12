@@ -10,6 +10,4 @@ prototype
 factory_method
 abstract_factory
 adapta
-my_math
-hello
 )

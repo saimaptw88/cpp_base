@@ -92,7 +92,7 @@ FILE="$HOME_DIR/src/CMakeLists.txt"
 echo "add_subdirectory($NAME)" >> $FILE
 
 # add to $HOME_DIR/src/exe/CMakeLists.txt
-sed -i -e "3a $NAME" $HOME_DIR/src/exe/CMakeLists.txt
+sed -i -e "6a $NAME" $HOME_DIR/src/exe/CMakeLists.txt
 
 # add to $HOME_DIR/CMakeLists.txt
 TEXT='./src/'$NAME'_test;'
