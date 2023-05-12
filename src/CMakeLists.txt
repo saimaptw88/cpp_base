@@ -13,3 +13,4 @@ add_subdirectory(singleton)
 add_subdirectory(adapta)
 
 add_subdirectory(bridge)
+add_subdirectory(composite)

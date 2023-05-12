@@ -6,6 +6,7 @@
 #include "../singleton/singleton.h"
 #include "../adapta/adapta.h"
 #include "../bridge/bridge.h"
+#include "../composite/composite.h"
 
 
 int main(void) {
@@ -16,6 +17,7 @@ int main(void) {
   execute_singleton();
   execute_adapta();
   execute_bridge();
+  execute_composite();
 
   return 0;
 }
