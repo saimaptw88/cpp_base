@@ -32,7 +32,7 @@ class ConcreteImplementationB : public Implementation {
 
 class Abstraction {
  protected:
-  std::unique_ptr<Implementation> implementation_;
+  std::unique_ptr<Implementation> implementation_ = nullptr;
 
  public:
   explicit Abstraction(std::unique_ptr<Implementation> implementation)
