@@ -12,3 +12,4 @@ add_subdirectory(builder)
 add_subdirectory(singleton)
 add_subdirectory(adapta)
 
+add_subdirectory(bridge)
