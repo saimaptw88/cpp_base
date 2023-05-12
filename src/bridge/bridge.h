@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <string>
+#include <utility>
 
 
 int sum(int, int);
@@ -34,7 +35,8 @@ class Abstraction {
   std::unique_ptr<Implementation> implementation_;
 
  public:
-  Abstraction(std::unique_ptr<Implementation> implementation): implementation_(std::move(implementation)) {}
+  explicit Abstraction(std::unique_ptr<Implementation> implementation)
+    : implementation_(std::move(implementation)) {}
 
   virtual ~Abstraction() {}
   virtual std::string Operation() const {
@@ -45,7 +47,8 @@ class Abstraction {
 
 class ExtendedAbstraction : public Abstraction {
  public:
-  ExtendedAbstraction(std::unique_ptr<Implementation> implementation) : Abstraction(std::move(implementation)) {}
+  explicit ExtendedAbstraction(std::unique_ptr<Implementation> implementation)
+    : Abstraction(std::move(implementation)) {}
 
   std::string Operation() const override {
     return "ExtendedAbstraction: Extended operation with: \n" +
@@ -59,7 +62,8 @@ void ClientCode(std::unique_ptr<Abstraction> abstraction) {
 
 void execute_bridge() {
   std::unique_ptr<Implementation> Implementation(new ConcreteImplementationA());
-  std::unique_ptr<Abstraction> abstraction(new ExtendedAbstraction(std::move(Implementation)));
+  std::unique_ptr<Abstraction> abstraction(
+    new ExtendedAbstraction(std::move(Implementation)));
 
   ClientCode(std::move(abstraction));
   std::cout << std::endl;
