@@ -62,7 +62,7 @@ class Composite : public Component {
   std::string Operation() const override {
     std::string result;
 
-    for (const Component* c: children_) {
+    for (const Component* c : children_) {
       if (c == children_.back()) {
         result += c->Operation();
       } else {
@@ -112,7 +112,8 @@ void execute_composite() {
   ClientCode(tree);
   std::cout << "\n\n";
 
-  std::cout << "Client: I done't need to check the components classes even when manging the tree:\n";
+  std::cout << "Client: I done't need to check "
+    << "the components classes even when manging the tree:\n";
 
   ClientCode(tree, simple);
   std::cout << "\n";
