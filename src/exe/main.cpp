@@ -6,6 +6,7 @@
 #include "../factory_method/factory_method.h"
 #include "../prototype/prototype.h"
 #include "../singleton/singleton.h"
+#include "../adapta/adapta.h"
 
 
 int main(void) {
@@ -14,6 +15,7 @@ int main(void) {
   execute_prototype();
   execute_builder();
   execute_singleton();
+  execute_adapta();
 
   return 0;
 }
