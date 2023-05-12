@@ -3,7 +3,9 @@
 #define SRC_BRIDGE_BRIDGE_H_
 
 #include <iostream>
+#include <memory>
 #include <string>
+#include <utility>
 
 
 int sum(int, int);
@@ -30,10 +32,11 @@ class ConcreteImplementationB : public Implementation {
 
 class Abstraction {
  protected:
-  Implementation* implementation_;
+  std::unique_ptr<Implementation> implementation_;
 
  public:
-  Abstraction(Implementation* implementation): implementation_(implementation) {}
+  explicit Abstraction(std::unique_ptr<Implementation> implementation)
+    : implementation_(std::move(implementation)) {}
 
   virtual ~Abstraction() {}
   virtual std::string Operation() const {
@@ -44,7 +47,8 @@ class Abstraction {
 
 class ExtendedAbstraction : public Abstraction {
  public:
-  ExtendedAbstraction(Implementation* implementation) : Abstraction(implementation) {}
+  explicit ExtendedAbstraction(std::unique_ptr<Implementation> implementation)
+    : Abstraction(std::move(implementation)) {}
 
   std::string Operation() const override {
     return "ExtendedAbstraction: Extended operation with: \n" +
@@ -52,19 +56,17 @@ class ExtendedAbstraction : public Abstraction {
   }
 };
 
-void ClientCode(const Abstraction* abstraction) {
+void ClientCode(std::unique_ptr<Abstraction> abstraction) {
   std::cout << abstraction->Operation();
 }
 
 void execute_bridge() {
-  Implementation* Implementation = new ConcreteImplementationA();
-  Abstraction* abstraction = new ExtendedAbstraction(Implementation);
+  std::unique_ptr<Implementation> Implementation(new ConcreteImplementationA());
+  std::unique_ptr<Abstraction> abstraction(
+    new ExtendedAbstraction(std::move(Implementation)));
 
-  ClientCode(abstraction);
+  ClientCode(std::move(abstraction));
   std::cout << std::endl;
-
-  delete Implementation;
-  delete abstraction;
 }
 
 
