@@ -12,7 +12,7 @@
 
 int main(void) {
   execute_abstract_factory();
-  execute_factory_method();
+  factory_method::execute();
   prototype::execute();
   builder::execute();
   singleton::execute();
