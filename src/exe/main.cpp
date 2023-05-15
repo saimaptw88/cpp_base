@@ -20,6 +20,7 @@ int main(void) {
   bridge::execute();
   composite::execute();
   decorator::execute();
+  decorator::client();
 
   return 0;
 }

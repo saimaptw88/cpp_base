@@ -3,6 +3,7 @@
 #define SRC_DECORATOR_DECORATOR_H_
 
 #include <iostream>
+#include <memory>
 #include <string>
 
 
@@ -73,6 +74,78 @@ void execute() {
   delete decorator1;
   delete decorator2;
 }
+
+// メール通知のみ提供していたサービスにSlackやFacebook、
+// SMS通知を後から追加する必要が出てきた。
+// また、SMSのみやメールのみだけでなく、SlackとSMSとメールに
+// 通知が欲しいと組み合わせた通知の要望が増えた
+class Notifier {
+ public:
+  virtual ~Notifier() {}
+  virtual std::string send(const std::string&) const = 0;
+};
+
+// default notifier
+class EmailNotifier : public Notifier {
+ public:
+  std::string send(const std::string& message) const override {
+    return "email message: " + message;
+  }
+};
+
+class NotifierDecorator : public Notifier {
+ protected:
+  Notifier* notifier_;
+
+ public:
+  NotifierDecorator(Notifier* notifier) : notifier_(notifier) {}
+
+  std::string send(const std::string& message) const override {
+    return this->notifier_->send(message);
+  }
+};
+
+class FacebookDecorator : public NotifierDecorator {
+ public:
+  FacebookDecorator(Notifier* notifier) : NotifierDecorator(notifier) {}
+
+  std::string send(const std::string& message) const override {
+    return "facebook message: " + message + "\n" + NotifierDecorator::send(message);
+  }
+};
+
+class SlackDecorator : public NotifierDecorator {
+ public:
+  SlackDecorator(Notifier* notifier) : NotifierDecorator(notifier) {}
+
+  std::string send(const std::string& message) const override {
+    return "slack message: " + message + "\n" + NotifierDecorator::send(message);
+  }
+};
+
+class SmsDecorator : public NotifierDecorator {
+ public:
+  SmsDecorator(Notifier* notifier) : NotifierDecorator(notifier) {}
+
+  std::string send(const std::string& message) const override {
+    return "sms message: " + message + "\n" + NotifierDecorator::send(message);
+  }
+};
+
+void client() {
+  Notifier* notifier = new EmailNotifier;
+  Notifier* facebook_notifier = new FacebookDecorator(notifier);
+  Notifier* sms_notifier = new SmsDecorator(facebook_notifier);
+  Notifier* slack_notifier = new SlackDecorator(sms_notifier);
+
+  std::cout << slack_notifier->send("test message");
+
+  delete slack_notifier;
+  delete sms_notifier;
+  delete facebook_notifier;
+  delete notifier;
+}
+
 }  // namespace decorator
 
 #endif  // SRC_DECORATOR_DECORATOR_H_
