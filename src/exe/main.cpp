@@ -16,7 +16,7 @@ int main(void) {
   execute_prototype();
   builder::execute();
   execute_singleton();
-  execute_adapta();
+  adapta::execute();
   bridge::execute();
   composite::execute();
   decorator::execute();
