@@ -7,17 +7,20 @@
 #include "../adapta/adapta.h"
 #include "../bridge/bridge.h"
 #include "../composite/composite.h"
+#include "../decorator/decorator.h"
 
 
 int main(void) {
-  execute_abstract_factory();
-  execute_factory_method();
-  execute_prototype();
-  execute_builder();
-  execute_singleton();
-  execute_adapta();
-  execute_bridge();
-  execute_composite();
+  abstract_factory::execute();
+  factory_method::execute();
+  prototype::execute();
+  builder::execute();
+  singleton::execute();
+  adapta::execute();
+  bridge::execute();
+  composite::execute();
+  decorator::execute();
+  decorator::client();
 
   return 0;
 }

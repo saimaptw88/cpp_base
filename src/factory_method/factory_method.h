@@ -8,6 +8,7 @@
 
 int sum(int, int);
 
+namespace factory_method {
 class Transport {
  public:
   virtual ~Transport() {}
@@ -61,7 +62,7 @@ void ClientCode(const Logistics& logistics) {
   std::cout << logistics.deliveration() << std::endl;
 }
 
-void execute_factory_method() {
+void execute() {
   Logistics* road_logistics = new RoadLogistics();
   ClientCode(*road_logistics);
   delete road_logistics;
@@ -70,4 +71,6 @@ void execute_factory_method() {
   ClientCode(*sea_logistics);
   delete sea_logistics;
 }
+}  // namespace factory_method
+
 #endif  // SRC_FACTORY_METHOD_FACTORY_METHOD_H_

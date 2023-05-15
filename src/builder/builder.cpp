@@ -6,7 +6,7 @@ int sum(int a, int b) {
   return a + b;
 }
 
-void ClientCode(Director& director) { // NOLINT
+void builder::ClientCode(Director& director) { // NOLINT
   ConcreteBuilder1* builder = new ConcreteBuilder1();
   director.set_builder(builder);
   std::cout << "Standard basic product:\n";
@@ -33,7 +33,7 @@ void ClientCode(Director& director) { // NOLINT
   delete builder;
 }
 
-void execute_builder() {
+void builder::execute() {
   Director* director = new Director();
   ClientCode(*director);
   delete director;

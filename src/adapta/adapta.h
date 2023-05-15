@@ -9,6 +9,7 @@
 
 int sum(int, int);
 
+namespace adapta {
 class Target {
  public:
   virtual ~Target() = default;
@@ -42,7 +43,7 @@ void ClientCode(const Target *target) {
   std::cout << target->Request() << std::endl;
 }
 
-void execute_adapta() {
+void execute() {
   std::cout << "Client: I can work just fine with the Target objects:"
             << std::endl;
   Target *target = new Target;
@@ -62,4 +63,6 @@ void execute_adapta() {
   delete adaptee;
   delete adapter;
 }
+}  // namespace adapta
+
 #endif  // SRC_ADAPTA_ADAPTA_H_
