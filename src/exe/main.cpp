@@ -17,7 +17,7 @@ int main(void) {
   builder::execute();
   execute_singleton();
   execute_adapta();
-  execute_bridge();
+  bridge::execute();
   composite::execute();
   decorator::execute();
 

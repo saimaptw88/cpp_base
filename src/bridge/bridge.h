@@ -10,6 +10,7 @@
 
 int sum(int, int);
 
+namespace bridge {
 class Implementation {
  public:
   virtual ~Implementation() {}
@@ -60,7 +61,7 @@ void ClientCode(std::unique_ptr<Abstraction> abstraction) {
   std::cout << abstraction->Operation();
 }
 
-void execute_bridge() {
+void execute() {
   std::unique_ptr<Implementation> Implementation(new ConcreteImplementationA());
   std::unique_ptr<Abstraction> abstraction(
     new ExtendedAbstraction(std::move(Implementation)));
@@ -68,6 +69,6 @@ void execute_bridge() {
   ClientCode(std::move(abstraction));
   std::cout << std::endl;
 }
-
+}  // namespace bridge
 
 #endif  // SRC_BRIDGE_BRIDGE_H_
