@@ -14,7 +14,7 @@ int main(void) {
   execute_abstract_factory();
   execute_factory_method();
   execute_prototype();
-  execute_builder();
+  builder::execute();
   execute_singleton();
   execute_adapta();
   execute_bridge();

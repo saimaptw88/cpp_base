@@ -9,6 +9,7 @@
 
 int sum(int, int);
 
+namespace builder {
 class Product1 {
  public:
   std::vector<std::string> parts_;
@@ -93,6 +94,7 @@ class Director {
 
 void ClientCode(Director& director); // NOLINT
 
-void execute_builder();
+void execute();
+}  // namespace builder
 
 #endif  // SRC_BUILDER_BUILDER_H_
