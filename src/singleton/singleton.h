@@ -11,6 +11,7 @@
 
 int sum(int, int);
 
+namespace singleton {
 class Singleton {
  private:
   static Singleton* pinstance_;
@@ -34,6 +35,7 @@ class Singleton {
 void ThreadFoo();
 void ThreadBar();
 
-void execute_singleton();
+void execute();
+}  // namespace singleton
 
 #endif  // SRC_SINGLETON_SINGLETON_H_

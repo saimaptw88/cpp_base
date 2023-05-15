@@ -6,6 +6,7 @@ int sum(int a, int b) {
   return a + b;
 }
 
+namespace singleton{
 Singleton *Singleton::pinstance_{ nullptr };
 std::mutex Singleton::mutex_;
 
@@ -31,7 +32,7 @@ void ThreadBar() {
   std::cout << singleton->value() << std::endl;
 }
 
-void execute_singleton() {
+void execute() {
   std::cout << "If you see the same value, then singleton was reused (yay!\n"
   << "If you see different values 2 singletons were created (booo!)\n\n"
   << "RESULT:" << std::endl;
@@ -42,3 +43,4 @@ void execute_singleton() {
   t1.join();
   t2.join();
 }
+}  // namespace singleton
