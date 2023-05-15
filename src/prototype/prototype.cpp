@@ -6,6 +6,7 @@ int sum(int a, int b) {
   return a + b;
 }
 
+namespace prototype {
 void Client(PrototypeFactory &prototype_factory) {// NOLINT
   std::cout << "Let's create a Prototype 1\n";
 
@@ -22,10 +23,11 @@ void Client(PrototypeFactory &prototype_factory) {// NOLINT
   delete prototype;
 }
 
-void execute_prototype() {
+void execute() {
   PrototypeFactory *prototype_factory = new PrototypeFactory();
 
   Client(*prototype_factory);
 
   delete prototype_factory;
 }
+}  // namespace prototype

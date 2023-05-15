@@ -13,7 +13,7 @@
 int main(void) {
   execute_abstract_factory();
   execute_factory_method();
-  execute_prototype();
+  prototype::execute();
   builder::execute();
   singleton::execute();
   adapta::execute();

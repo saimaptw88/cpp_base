@@ -7,12 +7,13 @@
 #include <unordered_map>
 
 
+int sum(int, int);
+
+namespace prototype {
 enum Type {
   PROTOTYPE_1 = 0,
   PROTOTYPE_2,
 };
-
-int sum(int, int);
 
 class Prototype {
  protected:
@@ -86,6 +87,7 @@ class PrototypeFactory {
 };
 
 void Client(PrototypeFactory &prototype_factory);  // NOLINT
-void execute_prototype();
+void execute();
+}  // namespace prototype
 
 #endif  // SRC_PROTOTYPE_PROTOTYPE_H_
