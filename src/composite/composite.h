@@ -10,6 +10,7 @@
 
 int sum(int, int);
 
+namespace composite {
 class Component {
  protected:
   Component *parent_;
@@ -86,7 +87,7 @@ void ClientCode(Component* component1, Component* component2) {
   std::cout << "RESULT: " << component1->Operation();
 }
 
-void execute_composite() {
+void execute() {
   Component* simple = new Leaf();
   std::cout << "Client: I've got a simple component:\n";
   ClientCode(simple);
@@ -126,6 +127,7 @@ void execute_composite() {
   delete leaf2;
   delete leaf3;
 }
+}  // namespace composite
 
 
 #endif  // SRC_COMPOSITE_COMPOSITE_H_

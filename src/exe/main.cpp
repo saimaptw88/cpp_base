@@ -18,7 +18,7 @@ int main(void) {
   execute_singleton();
   execute_adapta();
   execute_bridge();
-  execute_composite();
+  composite::execute();
   decorator::execute();
 
   return 0;
