@@ -3,7 +3,9 @@
 #define SRC_FACADE_FACADE_H_
 
 #include <iostream>
+#include <memory>
 #include <string>
+#include <utility>
 
 
 int sum(int, int);
@@ -33,21 +35,20 @@ class Subsystem2 {
 
 class Facade {
  protected:
-  Subsystem1* subsystem1_;
-  Subsystem2* subsystem2_;
+  std::unique_ptr<Subsystem1> subsystem1_ = nullptr;
+  std::unique_ptr<Subsystem2> subsystem2_ = nullptr;
 
  public:
   Facade(
-    Subsystem1* subsystem1 = nullptr,
-    Subsystem2* subsystem2 = nullptr
+    std::unique_ptr<Subsystem1> subsystem1 = nullptr,
+    std::unique_ptr<Subsystem2> subsystem2 = nullptr
   ) {
-    this->subsystem1_ = subsystem1 ? subsystem1 : new Subsystem1;
-    this->subsystem2_ = subsystem2 ? subsystem2 : new Subsystem2;
-  }
+    this->subsystem1_ = subsystem1 ?
+      std::move(subsystem1)
+      : std::make_unique<Subsystem1>();
 
-  ~Facade() {
-    delete subsystem1_;
-    delete subsystem2_;
+    this->subsystem2_ = subsystem2 ? std::move(subsystem2)
+      : std::make_unique<Subsystem2>();
   }
 
   std::string Operation() {
@@ -62,18 +63,17 @@ class Facade {
   }
 };
 
-void ClientCode(Facade* facade) {
+void ClientCode(std::unique_ptr<Facade> facade) {
   std::cout << facade->Operation();
 }
 
 void execute() {
-  Subsystem1* subsystem1 = new Subsystem1;
-  Subsystem2* subsystem2 = new Subsystem2;
-  Facade* facade = new Facade(subsystem1, subsystem2);
+  std::unique_ptr<Subsystem1> subsystem1(new Subsystem1);
+  std::unique_ptr<Subsystem2> subsystem2(new Subsystem2);
+  std::unique_ptr<Facade> facade(
+    new Facade(std::move(subsystem1), std::move(subsystem2)));
 
-  ClientCode(facade);
-
-  delete facade;
+  ClientCode(std::move(facade));
 }
 }  // namespace facade
 #endif  // SRC_FACADE_FACADE_H_
