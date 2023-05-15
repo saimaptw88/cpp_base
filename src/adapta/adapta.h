@@ -63,6 +63,6 @@ void execute() {
   delete adaptee;
   delete adapter;
 }
-}
+}  // namespace adapta
 
 #endif  // SRC_ADAPTA_ADAPTA_H_
