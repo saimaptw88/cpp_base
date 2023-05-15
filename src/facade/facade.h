@@ -3,6 +3,7 @@
 #define SRC_FACADE_FACADE_H_
 
 #include <iostream>
+#include <string>
 
 
 int sum(int, int);
