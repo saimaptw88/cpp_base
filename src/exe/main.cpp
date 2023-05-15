@@ -8,6 +8,7 @@
 #include "../bridge/bridge.h"
 #include "../composite/composite.h"
 #include "../decorator/decorator.h"
+#include "../facade/facade.h"
 
 
 int main(void) {
@@ -20,7 +21,7 @@ int main(void) {
   bridge::execute();
   composite::execute();
   decorator::execute();
-  decorator::client();
+  facade::execute();
 
   return 0;
 }
