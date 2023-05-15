@@ -28,7 +28,7 @@ class Decorator : public Component {
   Component* component_;
 
  public:
-  Decorator(Component* component): component_(component) {}
+  explicit Decorator(Component* component): component_(component) {}
 
   std::string Operation() const override {
     return this->component_->Operation();
@@ -37,7 +37,7 @@ class Decorator : public Component {
 
 class ConcreteDecoratorA : public Decorator {
  public:
-  ConcreteDecoratorA(Component* component): Decorator(component) {}
+  explicit ConcreteDecoratorA(Component* component): Decorator(component) {}
 
   std::string Operation() const override {
     return "ConcreteDecotatorA(" + Decorator::Operation() + ")";
@@ -46,7 +46,7 @@ class ConcreteDecoratorA : public Decorator {
 
 class ConcreteDecoratorB : public Decorator {
  public:
-  ConcreteDecoratorB(Component* component) : Decorator(component) {}
+  explicit ConcreteDecoratorB(Component* component) : Decorator(component) {}
 
   std::string Operation() const override {
     return "ConcreteDecoratorB(" + Decorator::Operation() + ")";
@@ -98,7 +98,7 @@ class NotifierDecorator : public Notifier {
   Notifier* notifier_;
 
  public:
-  NotifierDecorator(Notifier* notifier) : notifier_(notifier) {}
+  explicit NotifierDecorator(Notifier* notifier) : notifier_(notifier) {}
 
   std::string send(const std::string& message) const override {
     return this->notifier_->send(message);
@@ -107,25 +107,28 @@ class NotifierDecorator : public Notifier {
 
 class FacebookDecorator : public NotifierDecorator {
  public:
-  FacebookDecorator(Notifier* notifier) : NotifierDecorator(notifier) {}
+  explicit FacebookDecorator(Notifier* notifier)
+    : NotifierDecorator(notifier) {}
 
   std::string send(const std::string& message) const override {
-    return "facebook message: " + message + "\n" + NotifierDecorator::send(message);
+    return "facebook message: " + message + "\n"
+            + NotifierDecorator::send(message);
   }
 };
 
 class SlackDecorator : public NotifierDecorator {
  public:
-  SlackDecorator(Notifier* notifier) : NotifierDecorator(notifier) {}
+  explicit SlackDecorator(Notifier* notifier) : NotifierDecorator(notifier) {}
 
   std::string send(const std::string& message) const override {
-    return "slack message: " + message + "\n" + NotifierDecorator::send(message);
+    return "slack message: " + message + "\n"
+            + NotifierDecorator::send(message);
   }
 };
 
 class SmsDecorator : public NotifierDecorator {
  public:
-  SmsDecorator(Notifier* notifier) : NotifierDecorator(notifier) {}
+  explicit SmsDecorator(Notifier* notifier) : NotifierDecorator(notifier) {}
 
   std::string send(const std::string& message) const override {
     return "sms message: " + message + "\n" + NotifierDecorator::send(message);
