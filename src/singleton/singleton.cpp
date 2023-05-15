@@ -6,7 +6,7 @@ int sum(int a, int b) {
   return a + b;
 }
 
-namespace singleton{
+namespace singleton {
 Singleton *Singleton::pinstance_{ nullptr };
 std::mutex Singleton::mutex_;
 
