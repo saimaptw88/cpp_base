@@ -7,6 +7,7 @@
 
 int sum(int, int);
 
+namespace abstract_factory {
 class Chair {
  public:
   virtual ~Chair() {}
@@ -103,7 +104,7 @@ inline void application(const FurnitureFactory& furniture) {
   delete coffee_table;
 }
 
-inline void execute_abstract_factory() {
+inline void execute() {
   ModenFurnitureFactory* moden_furniture = new ModenFurnitureFactory();
   application(*moden_furniture);
   delete moden_furniture;
@@ -113,5 +114,6 @@ inline void execute_abstract_factory() {
   application(*victorian_furniture);
   delete victorian_furniture;
 }
+}  // namespace abstract_factory
 
 #endif  // SRC_ABSTRACT_FACTORY_ABSTRACT_FACTORY_H_

@@ -11,7 +11,7 @@
 
 
 int main(void) {
-  execute_abstract_factory();
+  abstract_factory::execute();
   factory_method::execute();
   prototype::execute();
   builder::execute();
