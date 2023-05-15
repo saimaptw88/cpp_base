@@ -7,6 +7,7 @@
 #include "../adapta/adapta.h"
 #include "../bridge/bridge.h"
 #include "../composite/composite.h"
+#include "../decorator/decorator.h"
 
 
 int main(void) {
@@ -18,6 +19,7 @@ int main(void) {
   execute_adapta();
   execute_bridge();
   execute_composite();
+  decorator::execute();
 
   return 0;
 }
