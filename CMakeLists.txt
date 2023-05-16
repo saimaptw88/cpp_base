@@ -8,6 +8,7 @@ enable_testing()
 add_test(NAME MyTest COMMAND bash -c
 "./src/adapta_test;
 ./src/singleton_test;
+./src/flyweight_test;
 ./src/facade_test;
 ./src/decorator_test;
 ./src/composite_test;
