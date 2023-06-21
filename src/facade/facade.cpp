@@ -21,8 +21,8 @@ std::string Subsystem2::OperationZ() const {
   return "Subsystem2: Fire!\n";
 }
 
-Facade::Facade(std::unique_ptr<Subsystem1> subsystem1=nullptr,
-               std::unique_ptr<Subsystem2> subsystem2=nullptr) {
+Facade::Facade(std::unique_ptr<Subsystem1> subsystem1 = nullptr,
+               std::unique_ptr<Subsystem2> subsystem2 = nullptr) {
   if (!this->subsystem1_)
     this->subsystem1_ = std::make_unique<Subsystem1>();
 

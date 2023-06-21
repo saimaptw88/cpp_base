@@ -26,7 +26,7 @@ class Facade {
 
  public:
   Facade(std::unique_ptr<Subsystem1>, std::unique_ptr<Subsystem2>);
-  virtual ~Facade() {};
+  virtual ~Facade() {}
 
   std::string Operation();
 };
