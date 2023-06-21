@@ -21,15 +21,15 @@ std::string Subsystem2::OperationZ() const {
   return "Subsystem2: Fire!\n";
 }
 
-Facade::Facade(Subsystem1 *subsystem1=nullptr, Subsystem2 *subsystem2=nullptr) {
-  this->subsystem1_ = subsystem1 ?: new Subsystem1();
-  this->subsystem2_ = subsystem2 ?: new Subsystem2();
+Facade::Facade(std::unique_ptr<Subsystem1> subsystem1=nullptr,
+               std::unique_ptr<Subsystem2> subsystem2=nullptr) {
+  if (!this->subsystem1_)
+    this->subsystem1_ = std::make_unique<Subsystem1>();
+
+  if (!this->subsystem2_)
+    this->subsystem2_ = std::make_unique<Subsystem2>();
 }
 
-Facade::~Facade() {
-  delete subsystem1_;
-  delete subsystem2_;
-}
 
 std::string Facade::Operation() {
   std::string result = "Facade initializes subsystems: \n";
@@ -43,18 +43,17 @@ std::string Facade::Operation() {
   return result;
 }
 
-void ClientCode(Facade *facade) {
+void ClientCode(std::unique_ptr<Facade> facade) {
   std::cout << facade->Operation() << std::endl;
 }
 
 void execute() {
-  Subsystem1 *subsystem1 = new Subsystem1();
-  Subsystem2 *subsystem2 = new Subsystem2();
+  std::unique_ptr<Subsystem1> subsystem1(new Subsystem1());
+  std::unique_ptr<Subsystem2> subsystem2(new Subsystem2());
 
-  Facade *facade = new Facade(subsystem1, subsystem2);
+  std::unique_ptr<Facade> facade(new Facade(
+    std::move(subsystem1), std::move(subsystem2)));
 
-  ClientCode(facade);
-
-  delete facade;
+  ClientCode(std::move(facade));
 }
 }  // namespace facade

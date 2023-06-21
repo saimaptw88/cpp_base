@@ -3,6 +3,7 @@
 #define SRC_FACADE_FACADE_H_
 
 
+#include <memory>
 #include <string>
 
 namespace facade {
@@ -20,16 +21,17 @@ class Subsystem2 {
 
 class Facade {
  protected:
-  Subsystem1 *subsystem1_;
-  Subsystem2 *subsystem2_;
+  std::unique_ptr<Subsystem1> subsystem1_;
+  std::unique_ptr<Subsystem2> subsystem2_;
 
  public:
-  Facade(Subsystem1 *subsystem1, Subsystem2 *subsystem2);
-  ~Facade();
+  Facade(std::unique_ptr<Subsystem1>, std::unique_ptr<Subsystem2>);
+  virtual ~Facade() {};
+
   std::string Operation();
 };
 
-void ClientCode(Facade *facade);
+void ClientCode(std::unique_ptr<Facade>);
 void execute();
 }  // namespace facade
 #endif  // SRC_FACADE_FACADE_H_
