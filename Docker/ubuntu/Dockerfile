@@ -1,19 +1,19 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 ENV GOOGLE_TEST_VERSION 1.12.0
-ENV CMAKE_VERSION 3.24.2
+ENV CMAKE_VERSION 3.28.1
 
 RUN apt-get update \
-  && apt-get install -y \
-      build-essential \
-      clang \
-      curl \
-      libssl-dev \
-      python3-pip \
-  && pip3 install cpplint \
-  && apt-get clean \
-  && rm -r /var/lib/apt/lists/* \
-  && mkdir /tmp/src
+    && apt-get install -y \
+    build-essential \
+    clang \
+    curl \
+    libssl-dev \
+    python3-pip \
+    && pip3 install cpplint \
+    && apt-get clean \
+    && rm -r /var/lib/apt/lists/* \
+    && mkdir /tmp/src
 
 WORKDIR /tmp/src
 RUN curl -OL https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}.tar.gz \
