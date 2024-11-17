@@ -4,14 +4,4 @@ find_package(Threads REQUIRED)
 target_link_libraries(
 my_app
 PUBLIC "-pthread"
-facade
-decorator
-composite
-bridge
-singleton
-builder
-prototype
-factory_method
-abstract_factory
-adapta
 )
